@@ -1,8 +1,7 @@
 const jwt = require("./JwtTokenService");
 const fs = require("fs");
-
 var tokenList = [];
-
+const jwt_secret = process.env.JWT_SECRET;
 /**
  * Thêm token vào danh sách token
  * @param {*} token Token data
@@ -54,8 +53,10 @@ function writeToFile(path) {
   }
 }
 
+// Read token list from database
 function readFromDatabase() {}
 
+// Save token list to database
 function writeToDatabase() {}
 
 module.exports = {

@@ -69,7 +69,7 @@ async function postUploadFiles(req, res) {
         subOwner: subOwner,
         filename: filename,
         path: filepath,
-        type: filetype,
+        filetype: filetype,
         public: isPublic,
         tags: tags
       };

@@ -24,10 +24,11 @@ var schema = new Schema({
       default: []
     }
   ],
+  filetype: { type: String, default: "" },
   tags: [{ type: String, default: [] }],
   isPublic: {
     type: Boolean,
-    default: true,
+    default: true,  
     required: true
   },
   created: { type: Date, default: Date.now() }

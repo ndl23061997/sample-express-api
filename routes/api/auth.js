@@ -8,6 +8,7 @@ const salt = bcrypt.genSaltSync(saltRounds);
 //
 const jwt = require("../../services/JwtTokenService");
 const tokenService = require("../../services/TokenServices");
+const jwt_secert = process.env.JWT_SECRET;
 //
 const auth = require("../../services/AuthSerivce");
 
@@ -55,7 +56,8 @@ async function postLogIn(req, res, next) {
         // Create Token for user
         let payload = { email: user.email };
         let { token, expiresIn, expriesAt } = jwt.sign(payload);
-        let result = { token, expiresIn, expriesAt, role: user.role };
+        let imgCode = jwt.jwt.sign(user._id, jwt_secert);
+        let result = { token, expiresIn, expriesAt, role: user.role, imgCode };
         tokenService.addToken(token);
         return res.json(result);
       } else {
